@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --bg-page: #f5f1e8;
+  --bg-surface: #fdfbf7;
+  --bg-subtle: #ede6d8;
+  --bg-inset: #e6decb;
+  --border-subtle: rgba(24, 22, 18, 0.11);
+  --border-strong: rgba(24, 22, 18, 0.24);
+  --text-main: #161513;
+  --text-muted: #524d44;
+  --text-faint: #7c7568;
+  --accent-hist: #a84726;
+  --accent-hist-soft: rgba(168, 71, 38, 0.1);
+  --accent-bibl: #23476e;
+  --accent-bibl-soft: rgba(35, 71, 110, 0.1);
+  --accent-gold: #8c6728;
+  --accent-gold-soft: rgba(140, 103, 40, 0.12);
+  --shadow-card: 0 12px 32px -12px rgba(22, 21, 19, 0.08);
+}
+
+.dark {
+  --bg-page: #0d0d0b;
+  --bg-surface: #151512;
+  --bg-subtle: #1d1c18;
+  --bg-inset: #25241e;
+  --border-subtle: rgba(238, 233, 222, 0.1);
+  --border-strong: rgba(238, 233, 222, 0.24);
+  --text-main: #f1ede4;
+  --text-muted: #b5ae9f;
+  --text-faint: #847d6f;
+  --accent-hist: #e07652;
+  --accent-hist-soft: rgba(224, 118, 82, 0.13);
+  --accent-bibl: #6ea1d8;
+  --accent-bibl-soft: rgba(110, 161, 216, 0.13);
+  --accent-gold: #d4a959;
+  --accent-gold-soft: rgba(212, 169, 89, 0.14);
+  --shadow-card: 0 18px 42px -12px rgba(0, 0, 0, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.font-serif-editorial {
+  font-family: 'Instrument Serif', Georgia, Cambria, 'Times New Roman', serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono-meta {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hero-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.quote-display {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(1.65rem, 2.8vw, 2.5rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.bento-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  border-radius: 1.25rem;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.bento-card:hover {
+  border-color: var(--border-strong);
+}
+
+.bento-subbox {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.95rem;
+}
+
+.badge-hist {
+  background-color: var(--accent-hist-soft);
+  color: var(--accent-hist);
+  border: 1px solid color-mix(in srgb, var(--accent-hist) 28%, transparent);
+}
+
+.badge-bibl {
+  background-color: var(--accent-bibl-soft);
+  color: var(--accent-bibl);
+  border: 1px solid color-mix(in srgb, var(--accent-bibl) 28%, transparent);
+}
+
+.badge-gold {
+  background-color: var(--accent-gold-soft);
+  color: var(--accent-gold);
+  border: 1px solid color-mix(in srgb, var(--accent-gold) 30%, transparent);
+}
