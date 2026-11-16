@@ -172,14 +172,44 @@ export const SUBFOLDER_MOVEMENTS: SubfolderMovement[] = [
       'Schopenhauer (che teneva lezioni alla stessa ora di Hegel trovando l’aula vuota) e Leopardi dialogano a distanza sul dolore cosmico → Kierkegaard e Dostoevskij preparano il terreno a Nietzsche e all’esistenzialismo.',
   },
   {
+    id: 'realismo-naturalismo-verismo',
+    epochId: 'illuminismo_ottocento',
+    name: 'Realismo, Materialismo, Naturalismo & Verismo (Flaubert, Marx, Zola, Verga)',
+    yearsLabel: '1848 AD – 1889 AD',
+    wittyDescription:
+      'La letteratura e la filosofia scendono dalle nuvole romantiche per guardare in faccia fabbriche, debiti, matrimoni infelici e miniere siciliane: Flaubert inventa l’impersonalità, Marx svela il plusvalore, Zola trasforma il romanzo in un laboratorio scientifico e Verga racconta i "vinti" travolti dalla fiumana del progresso.',
+    connectionMapLabel:
+      'L’impersonalità di Flaubert (Madame Bovary) → il metodo sperimentale di Zola (Rougon-Macquart) → il Verismo pessimista di Giovanni Verga (Rosso Malpelo, I Malavoglia, Mastro-don Gesualdo) mentre Marx analizza il conflitto di classe.',
+  },
+  {
     id: 'nietzsche-martello-filosofia',
     epochId: 'illuminismo_ottocento',
-    name: 'Il Martello della Filosofia: Friedrich Nietzsche e la Crisi d’Occidente',
+    name: 'Il Martello della Filosofia & Il Simbolismo (Baudelaire e Nietzsche)',
     yearsLabel: '1844 AD – 1900 AD',
     wittyDescription:
-      'Alla vigilia del Novecento, un filologo solitario con dei baffi monumentali passeggia tra le Alpi svizzere e la Liguria prendendo a martellate duemila anni di morale occidentale, annunciando che "Dio è morto" e che dobbiamo diventare degni di questa vertigine.',
+      'Mentre Baudelaire perde l’aureola nel traffico di Parigi scoprendo le "corrispondenze" segrete della natura e lo Spleen, Friedrich Nietzsche passeggia tra le Alpi prendendo a martellate le certezze dell’Occidente tra spirito Apollineo e Dionisiaco.',
     connectionMapLabel:
-      'Nietzsche parte da Schopenhauer e dalla tragedia greca di Sofocle, definisce Dostoevskij "l’unico psicologo da cui ho avuto qualcosa da imparare" e influenza tutto il ’900 (da Cioran a Foucault).',
+      'Baudelaire apre la strada al Simbolismo e al Decadentismo → Nietzsche smonta la morale tradizionale influenzando D’Annunzio, Svevo e tutto il Novecento.',
+  },
+  {
+    id: 'decadentismo-pascoli-dannunzio',
+    epochId: 'contemporanea',
+    name: 'Il Decadentismo Italiano: Il Fanciullino di Pascoli & Il Superuomo di D’Annunzio',
+    yearsLabel: '1889 AD – 1921 AD',
+    wittyDescription:
+      'Due risposte opposte alla crisi di fine secolo: Giovanni Pascoli si rifugia nel "nido familiare" ascoltando il fonosimbolismo della natura col cuore del Fanciullino, mentre Gabriele D’Annunzio trasforma la propria vita in un’opera d’arte clamorosa tra estetismo, panismo e imprese militari.',
+    connectionMapLabel:
+      'Dal Simbolismo europeo (Baudelaire e Rimbaud) nascono i due poli italiani: il fonosimbolismo intimo di Pascoli (Myricae, L’Assiuolo, Italy) e l’estetismo/panismo di D’Annunzio (Il Piacere, Alcyone, Notturno).',
+  },
+  {
+    id: 'avanguardie-crisi-io-ermetismo',
+    epochId: 'contemporanea',
+    name: 'Psicoanalisi, Avanguardie & Frantumazione dell’Io (Freud, Svevo, Pirandello, Ungaretti)',
+    yearsLabel: '1900 AD – 1942 AD',
+    wittyDescription:
+      'Il Novecento fa saltare tutti gli schemi: Freud scopre l’inconscio, Marinetti urla le parole in libertà del Futurismo, Italo Svevo mette sul lettino l’inetto Zeno Cosini, Pirandello svela che siamo centomila maschere e Ungaretti scava nella trincea del Carso versi di due sole parole («M’illumino / d’immenso»).',
+    connectionMapLabel:
+      'La psicoanalisi di Freud e il tempo interiore di Bergson → il tempo misto de La coscienza di Zeno di Svevo → l’umorismo e le maschere di Pirandello (Il fu Mattia Pascal) → la parola scavata come un palombaro da Ungaretti.',
   },
   {
     id: 'novecento-totalitarismi-testimoni',
@@ -218,6 +248,7 @@ export interface AuthorSeed {
   historicalEventWiki: string;
   historicalEventLabel: string;
   satiricalHook: string;
+  simonNote?: string;
   connectionNote: string;
   connectedAuthorIds: string[];
 }
@@ -624,6 +655,8 @@ export const AUTHOR_SEEDS: AuthorSeed[] = [
     historicalEventLabel: 'L’esilio da Firenze (1302 AD) e la creazione della Divina Commedia',
     satiricalHook:
       'Cacciato da Firenze con condanna al rogo dai suoi avversari politici, si prese la rivincita letteraria più grandiosa della storia: costruì un intero Aldilà in endecasillabi per piazzare papi, politici e nemici personali nei gironi dell’Inferno mentre erano ancora vivi.',
+    simonNote:
+      'Simon dice: Nel III canto dell’Inferno Dante riprende da Omero e dall’Eneide di Virgilio la celebre similitudine delle foglie che cadono d’autunno («Come d’autunno si levan le foglie / l’una appresso de l’altra...»), topos letterario che tornerà nel Novecento nella poesia Soldati di Giuseppe Ungaretti e nel canto di Ulisse ricordato da Primo Levi ad Auschwitz.',
     connectionNote:
       'Raccoglie l’eredità di Omero, Virgilio, Aristotele e Boezio fondando la lingua italiana.',
     connectedAuthorIds: ['omero', 'boezio', 'tristano-e-isotta'],
@@ -918,6 +951,116 @@ export const AUTHOR_SEEDS: AuthorSeed[] = [
     connectedAuthorIds: ['kierkegaard', 'nietzsche', 'cioran'],
   },
   {
+    id: 'flaubert',
+    name: 'Gustave Flaubert',
+    wikiTitle: 'Gustave_Flaubert',
+    wikiquoteTitle: 'Gustave_Flaubert',
+    nationality: 'Francese',
+    profession: 'Scrittore e Poeta',
+    epochId: 'illuminismo_ottocento',
+    subfolderId: 'realismo-naturalismo-verismo',
+    yearBadge: '1821 AD – 1880 AD',
+    lifeSpan: 'Rouen, 1821 AD – Croisset, 1880 AD',
+    sortYear: 1857,
+    historicalEventWiki: 'Madame_Bovary',
+    historicalEventLabel: 'Madame Bovary (1857 AD), il Realismo e il processo per immoralità',
+    satiricalHook:
+      'Passava intere giornate a urlare le sue frasi da solo nello studio per sentire se il ritmo suonava bene: con Madame Bovary voleva prendere in giro le ragazze cresciute a romanzi d’amore sdolcinati, e gli riuscì così bene che i giudici di Parigi lo processarono per oltraggio alla morale.',
+    simonNote:
+      'Simon dice: Con Flaubert nasce il romanzo realista moderno (quello che Hegel definiva la "moderna epopea borghese"): linguaggio limpido, narratore impersonale quasi invisibile e discorso indiretto libero. Emma Bovary cresce in convento leggendo romanzi d’amore, sposa un medico di provincia insulso, cerca invano una vita da romanzo nei tradimenti e nei debiti e finisce per suicidarsi.',
+    connectionNote:
+      'La sua tecnica dell’impersonalità ("l’autore nell’opera deve essere come Dio nella creazione: invisibile e onnipotente") è la radice diretta di Zola e di Giovanni Verga.',
+    connectedAuthorIds: ['zola', 'verga', 'baudelaire'],
+  },
+  {
+    id: 'marx',
+    name: 'Karl Marx',
+    wikiTitle: 'Karl_Marx',
+    wikiquoteTitle: 'Karl_Marx',
+    nationality: 'Tedesca',
+    profession: 'Filosofo',
+    epochId: 'illuminismo_ottocento',
+    subfolderId: 'realismo-naturalismo-verismo',
+    yearBadge: '1818 AD – 1883 AD',
+    lifeSpan: 'Treviri, 1818 AD – Londra, 1883 AD',
+    sortYear: 1867,
+    historicalEventWiki: 'Il_Capitale',
+    historicalEventLabel: 'Il Manifesto (1848 AD), Il Capitale e il Materialismo Storico',
+    satiricalHook:
+      'Ha scritto la più monumentale critica del denaro e del capitalismo della storia umana mentre era perennemente al verde a Londra, inseguito dai creditori e mantenuto dagli assegni dell’amico Friedrich Engels (che di mestiere, per ironia della sorte, possedeva una fabbrica tessile a Manchester).',
+    simonNote:
+      'Simon dice: A differenza del socialismo utopico di Robert Owen (che sperava nella "buona volontà" dei padroni per aiutare gli operai), Marx fonda il materialismo storico: la storia è storia economica. I capitalisti detengono i mezzi di produzione e si arricchiscono grazie al "plusvalore" (il lavoro operaio non pagato). L’operaio è alienato e, con le crisi cicliche della tecnologia, i proletari di tutto il mondo sono chiamati a unirsi oltre i confini nazionali.',
+    connectionNote:
+      'Rovescia la dialettica idealista di Hegel sul terreno dell’economia reale e ispira i movimenti operai, la Comune di Parigi del 1871 e Antonio Gramsci.',
+    connectedAuthorIds: ['gramsci', 'zola', 'verga'],
+  },
+  {
+    id: 'zola',
+    name: 'Émile Zola',
+    wikiTitle: 'Émile_Zola',
+    wikiquoteTitle: 'Émile_Zola',
+    nationality: 'Francese',
+    profession: 'Scrittore e Poeta',
+    epochId: 'illuminismo_ottocento',
+    subfolderId: 'realismo-naturalismo-verismo',
+    yearBadge: '1840 AD – 1902 AD',
+    lifeSpan: 'Parigi, 1840 AD – 1902 AD',
+    sortYear: 1877,
+    historicalEventWiki: 'I_Rougon-Macquart',
+    historicalEventLabel: 'Il Naturalismo, L’Assommoir (L’Ammazzatoio) e il J’accuse',
+    satiricalHook:
+      'Prendeva il mestiere di scrittore-scienziato così sul serio che prima di scrivere un romanzo sui minatori scendeva davvero in miniera col taccuino, e prima di raccontare le ferrovie viaggiava in cabina col macchinista della locomotiva.',
+    simonNote:
+      'Simon dice: Figlio del Positivismo, del Darwinismo e del Determinismo, Zola applica il metodo sperimentale alla letteratura: nel ciclo di 20 romanzi dei Rougon-Macquart mostra come le "tare" ereditarie e l’ambiente condizionino i personaggi, dai proletari de L’Ammazzatoio (il bar parigino dell’alcolismo) all’alta borghesia. A differenza di Verga, Zola usa anche il linguaggio del popolo con fiducia nel progresso sociale.',
+    connectionNote:
+      'Parte dal realismo di Flaubert e ispira direttamente il Verismo italiano di Capuana e Giovanni Verga.',
+    connectedAuthorIds: ['flaubert', 'verga', 'marx'],
+  },
+  {
+    id: 'verga',
+    name: 'Giovanni Verga',
+    wikiTitle: 'Giovanni_Verga',
+    wikiquoteTitle: 'Giovanni_Verga',
+    nationality: 'Italiana',
+    profession: 'Scrittore e Poeta',
+    epochId: 'illuminismo_ottocento',
+    subfolderId: 'realismo-naturalismo-verismo',
+    yearBadge: '1840 AD – 1922 AD',
+    lifeSpan: 'Catania, 1840 AD – 1922 AD',
+    sortYear: 1881,
+    historicalEventWiki: 'I_Malavoglia',
+    historicalEventLabel: 'Rosso Malpelo, I Malavoglia (1881 AD), Mastro-don Gesualdo e il Ciclo dei Vinti',
+    satiricalHook:
+      'Gentiluomo catanese elegante e riservato che scriveva i suoi capolavori sui pescatori siciliani standosene nei caffè di Milano: chiamò la famiglia più laboriosa di Aci Trezza "I Malavoglia" (soprannome antifrastico perfetto) e dimostrò che quando provi a fare un affare coi lupini a credito finisce sempre male.',
+    simonNote:
+      'Simon dice: Verga riprende l’impersonalità di Flaubert e Zola ma senza alcuna fiducia nel progresso: la storia è una "fiumana" che schiaccia i più deboli (i Vinti). Usa l’eclissi dell’autore, la regressione (la voce narrante pensa e parla come il coro del paese) e lo straniamento (in Rosso Malpelo il pregiudizio popolare fa passare per cattivo l’unico ragazzo capace di affetto). Chi abbandona lo scoglio della famiglia ("Ideale dell’ostrica") si perde, come ’Ntoni e Lia ne I Malavoglia o come Mastro-don Gesualdo, che sacrifica l’amore di Diodata per sposare Bianca Trao e muore solo con un cancro allo stomaco, divorato dalla sua stessa "roba".',
+    connectionNote:
+      'Caposcuola del Verismo italiano; il suo pessimismo materialista dialoga con Leopardi e prepara la crisi del personaggio nel ’900 (Pirandello).',
+    connectedAuthorIds: ['zola', 'flaubert', 'pirandello'],
+  },
+  {
+    id: 'baudelaire',
+    name: 'Charles Baudelaire',
+    wikiTitle: 'Charles_Baudelaire',
+    wikiquoteTitle: 'Charles_Baudelaire',
+    nationality: 'Francese',
+    profession: 'Scrittore e Poeta',
+    epochId: 'illuminismo_ottocento',
+    subfolderId: 'nietzsche-martello-filosofia',
+    yearBadge: '1821 AD – 1867 AD',
+    lifeSpan: 'Parigi, 1821 AD – 1867 AD',
+    sortYear: 1857,
+    historicalEventWiki: 'I_fiori_del_male',
+    historicalEventLabel: 'I Fiori del Male (1857 AD), lo Spleen di Parigi e la perdita dell’aureola',
+    satiricalHook:
+      'Dandy vestito di nero che si dipinse i capelli di verde per scandalizzare i borghesi parigini: immaginò il poeta moderno come un albatro gigantesco che in cielo è il principe delle nuvole ma sul ponte della nave inciampa nelle sue stesse ali.',
+    simonNote:
+      'Simon dice: Con Baudelaire nasce il Simbolismo e il poeta vive la "perdita dell’aureola" nella città industriale. Ne I Fiori del Male (1857) la Natura è un tempio pieno di "corrispondenze" segrete che si svelano solo attraverso l’analogia e la sinestesia, mentre l’anima moderna è schiacciata dallo "Spleen" (noia, malinconia e angoscia esistenziale).',
+    connectionNote:
+      'Apre la stagione del Simbolismo europeo (Rimbaud, Mallarmé) da cui nasceranno il fonosimbolismo di Pascoli, D’Annunzio e Ungaretti.',
+    connectedAuthorIds: ['pascoli', 'dannunzio', 'ungaretti'],
+  },
+  {
     id: 'nietzsche',
     name: 'Friedrich Nietzsche',
     wikiTitle: 'Friedrich_Nietzsche',
@@ -930,17 +1073,173 @@ export const AUTHOR_SEEDS: AuthorSeed[] = [
     lifeSpan: 'Röcken, 1844 AD – Weimar, 1900 AD',
     sortYear: 1883,
     historicalEventWiki: 'Così_parlò_Zarathustra',
-    historicalEventLabel: 'La "morte di Dio", l’Oltreuomo, l’Eterno Ritorno e il crollo di Torino (1889 AD)',
+    historicalEventLabel: 'Apollineo e Dionisiaco, la "morte di Dio", l’Oltreuomo e l’Eterno Ritorno',
     satiricalHook:
       'Diventato professore universitario a soli ventiquattro anni, lasciò la cattedra per vivere da viandante tra le Alpi dell’Engadina, Rapallo e Torino, scrivendo libri dinamitardi («Io non sono un uomo, sono dinamite»). Il 3 gennaio 1889 a Torino abbracciò in lacrime un cavallo frustato dal cocchiere prima di sprofondare in undici anni di silenzio.',
+    simonNote:
+      'Simon dice: Nietzsche distingue due impulsi fondamentali della vita: l’Apollineo (che cerca ordine, misura e forme razionali, come il dio Apollo) e il Dionisiaco (impulso vitale, ebbrezza, musica e fusione con la natura, come Dioniso). Il suo concetto di Oltreuomo (legato alla volontà di potenza e all’eterno ritorno) non indica un dominatore politico superiore agli altri uomini, come invece lo traviserà D’Annunzio.',
     connectionNote:
       'Parte dal pessimismo di Schopenhauer e dalla tragedia di Sofocle per rovesciarli nell’amor fati; segna l’ingresso filosofico nel Novecento.',
-    connectedAuthorIds: ['schopenhauer', 'dostoevskij', 'cioran'],
+    connectedAuthorIds: ['schopenhauer', 'dannunzio', 'cioran'],
   },
 
   // =========================================================================
   // 6. IL NOVECENTO FINO AL 2000 AD (1900 AD - 2000 AD)
   // =========================================================================
+  {
+    id: 'pascoli',
+    name: 'Giovanni Pascoli',
+    wikiTitle: 'Giovanni_Pascoli',
+    wikiquoteTitle: 'Giovanni_Pascoli',
+    nationality: 'Italiana',
+    profession: 'Scrittore e Poeta',
+    epochId: 'contemporanea',
+    subfolderId: 'decadentismo-pascoli-dannunzio',
+    yearBadge: '1855 AD – 1912 AD',
+    lifeSpan: 'San Mauro di Romagna, 1855 AD – Bologna, 1912 AD',
+    sortYear: 1900,
+    historicalEventWiki: 'Myricae',
+    historicalEventLabel: 'Il trauma del 10 agosto, il Fanciullino, Myricae (1900 AD) e i Poemetti',
+    satiricalHook:
+      'Professore universitario di latino capace di vincere tredici medaglie d’oro ad Amsterdam scrivendo poemi in lingua morta, ma nella vita privata così ossessionato dal "nido" domestico che quando la sorella Ida si sposò rimase chiuso in camera a piangere come se fosse successo un lutto.',
+    simonNote:
+      'Simon dice: L’uccisione del padre Ruggero il 10 agosto 1867 segna tutta la vita di Pascoli e genera l’ossessione di ricostruire a Castelvecchio di Barga il "nido familiare" con le sorelle Ida e Mariù. Per Pascoli dentro ciascuno di noi vive un "Fanciullino" che, come il poeta veggente di Rimbaud, coglie l’essenza segreta delle cose tramite l’analogia, la sinestesia e il fonosimbolismo (onomatopee e allitterazioni, come ne L’Assiuolo). Da Myricae ("umili tamerici" da Virgilio) passa ai Poemetti (Digitale purpurea, Nebbia e lo sperimentalismo italo-inglese di Italy con la piccola Molly) fino al discorso "La grande proletaria si è mossa" per la guerra di Libia.',
+    connectionNote:
+      'Allievo di Carducci a Bologna; rappresenta il volto intimo e simbolista del Decadentismo italiano, opposto e complementare a D’Annunzio.',
+    connectedAuthorIds: ['dannunzio', 'baudelaire', 'ungaretti'],
+  },
+  {
+    id: 'dannunzio',
+    name: 'Gabriele D’Annunzio',
+    wikiTitle: 'Gabriele_D%27Annunzio',
+    wikiquoteTitle: 'Gabriele_D%27Annunzio',
+    nationality: 'Italiana',
+    profession: 'Scrittore e Poeta',
+    epochId: 'contemporanea',
+    subfolderId: 'decadentismo-pascoli-dannunzio',
+    yearBadge: '1863 AD – 1938 AD',
+    lifeSpan: 'Pescara, 1863 AD – Gardone Riviera, 1938 AD',
+    sortYear: 1903,
+    historicalEventWiki: 'Alcyone',
+    historicalEventLabel: 'Il Piacere (1889 AD), La pioggia nel pineto (Alcyone), l’Impresa di Fiume e il Notturno',
+    satiricalHook:
+      'Nato con il meno poetico cognome di Rapagnetta, inventò il marketing moderno prima della televisione: visse nella villa La Capponcina circondato da levrieri, cavalli e debiti colossali, volò su Vienna lanciando volantini tricolori e occupò la città di Fiume.',
+    simonNote:
+      'Simon dice: La parabola di D’Annunzio attraversa 4 fasi: 1) l’Estetismo de Il Piacere (1889, ispirato a Huysmans: "fare della propria vita un’opera d’arte"); 2) la "stagione della bontà" influenzata da Tolstoj e Dostoevskij (L’Innocente, Poema paradisiaco); 3) la fase del Superuomo (che D’Annunzio interpreta come poeta-vate superiore alla massa) e del "panismo" dionisiaco di Alcyone, dove ne La pioggia nel pineto il poeta ed Ermione si fondono con la natura; 4) il Notturno (1921), prosa lirica frammentaria scritta al buio con l’aiuto della figlia Renata dopo la ferita all’occhio.',
+    connectionNote:
+      'Rilegge in chiave estetica Nietzsche e il simbolismo francese, guidando il fronte interventista nel maggio 1915.',
+    connectedAuthorIds: ['pascoli', 'nietzsche', 'dostoevskij'],
+  },
+  {
+    id: 'freud',
+    name: 'Sigmund Freud',
+    wikiTitle: 'Sigmund_Freud',
+    wikiquoteTitle: 'Sigmund_Freud',
+    nationality: 'Austriaca',
+    profession: 'Scienziato e Pensatore',
+    epochId: 'contemporanea',
+    subfolderId: 'avanguardie-crisi-io-ermetismo',
+    yearBadge: '1856 AD – 1939 AD',
+    lifeSpan: 'Freiberg, 1856 AD – Londra, 1939 AD',
+    sortYear: 1900,
+    historicalEventWiki: 'L%27interpretazione_dei_sogni',
+    historicalEventLabel: 'L’interpretazione dei sogni (1900 AD) e la scoperta dell’Inconscio (Es, Io, Super-Io)',
+    satiricalHook:
+      'Inflisse all’orgoglio umano la terza grande umiliazione della storia: dopo Copernico (non siamo al centro del cosmo) e Darwin (siamo parenti delle scimmie), Freud annunciò che l’Io non è nemmeno padrone in casa propria, ma è un inquilino tiranneggiato da sogni, lapsus e desideri rimossi.',
+    simonNote:
+      'Simon dice: Con la nascita della psicoanalisi Freud scompone la psiche in tre istanze in perenne conflitto: l’Es (il calderone degli impulsi inconsci e dei sogni tra Eros e Thanatos), il Super-Io (il giudice interiore fatto di divieti e doveri morali) e l’Io (la coscienza che cerca faticosamente di mediare).',
+    connectionNote:
+      'Rivoluziona la letteratura del Novecento ispirando direttamente La coscienza di Zeno di Italo Svevo.',
+    connectedAuthorIds: ['svevo', 'pirandello', 'nietzsche'],
+  },
+  {
+    id: 'marinetti',
+    name: 'Filippo Tommaso Marinetti',
+    wikiTitle: 'Filippo_Tommaso_Marinetti',
+    wikiquoteTitle: 'Filippo_Tommaso_Marinetti',
+    nationality: 'Italiana',
+    profession: 'Scrittore e Poeta',
+    epochId: 'contemporanea',
+    subfolderId: 'avanguardie-crisi-io-ermetismo',
+    yearBadge: '1876 AD – 1944 AD',
+    lifeSpan: 'Alessandria d’Egitto, 1876 AD – Bellagio, 1944 AD',
+    sortYear: 1909,
+    historicalEventWiki: 'Manifesto_del_Futurismo',
+    historicalEventLabel: 'Il Manifesto del Futurismo su Le Figaro (1909 AD) e le "parole in libertà"',
+    satiricalHook:
+      'Dopo essere finito con la sua automobile in un fossato pieno d’acqua, uscì dal fango entusiasta e scrisse sul giornale parigino Le Figaro che un’automobile ruggente è più bella della Nike di Samotracia e che bisognava abolire musei, aggettivi, avverbi e persino la pastasciutta.',
+    simonNote:
+      'Simon dice: Tra le Avanguardie Storiche (Cubismo, Dadaismo, Espressionismo), il Futurismo di Marinetti (1909) usa la forma aggressiva del "manifesto" per punti: esalta velocità, macchina, forza e rottura col passato, e in letteratura inventa le "parole in libertà" (accumulo, verbi all’infinito, niente aggettivi né avverbi, punteggiatura abolita e onomatopee).',
+    connectionNote:
+      'La sua rivoluzione tipografica e sintattica a Parigi entra in contatto con il giovane Giuseppe Ungaretti.',
+    connectedAuthorIds: ['ungaretti', 'dannunzio', 'pirandello'],
+  },
+  {
+    id: 'svevo',
+    name: 'Italo Svevo',
+    wikiTitle: 'Italo_Svevo',
+    wikiquoteTitle: 'Italo_Svevo',
+    nationality: 'Italiana (Trieste Mitteleuropea)',
+    profession: 'Scrittore e Poeta',
+    epochId: 'contemporanea',
+    subfolderId: 'avanguardie-crisi-io-ermetismo',
+    yearBadge: '1861 AD – 1928 AD',
+    lifeSpan: 'Trieste, 1861 AD – Motta di Livenza, 1928 AD',
+    sortYear: 1923,
+    historicalEventWiki: 'La_coscienza_di_Zeno',
+    historicalEventLabel: 'La coscienza di Zeno (1923 AD), la figura dell’Inetto e l’ultima sigaretta',
+    satiricalHook:
+      'Di giorno rispettabile industriale di vernici sottomarine a Trieste (col vero nome di Ettore Schmitz), di sera scrittore ignorato dalla critica finché il suo insegnante privato d’inglese — un certo James Joyce — non lesse i suoi manoscritti facendolo esplodere in tutta Europa.',
+    simonNote:
+      'Simon dice: Svevo porta in scena l’Inetto (da Una vita e Senilità fino a Zeno Cosini): l’uomo privo di volontà rigida, inadatto alla lotta borghese. Ne La coscienza di Zeno (pubblicata per vendetta dallo psicoanalista Dottor S., parodia di Freud) il tempo è "misto", organizzato in 6 temi per associazioni mentali (il fumo, la morte del padre, il matrimonio, il lapsus del funerale sbagliato), e Zeno è un narratore bugiardo e inattendibile. Nel finale Zeno si proclama "guarito" perché diventa uno speculatore di guerra, ma ribalta Darwin e Schopenhauer: la vita moderna è "inquinata alle radici" e l’uomo cosiddetto "sano" finirà per far esplodere la Terra.',
+    connectionNote:
+      'Incrocia nella Trieste mitteleuropea la psicoanalisi di Freud, il pessimismo di Schopenhauer e il flusso di coscienza di Joyce.',
+    connectedAuthorIds: ['freud', 'pirandello', 'schopenhauer'],
+  },
+  {
+    id: 'pirandello',
+    name: 'Luigi Pirandello',
+    wikiTitle: 'Luigi_Pirandello',
+    wikiquoteTitle: 'Luigi_Pirandello',
+    nationality: 'Italiana',
+    profession: 'Drammaturgo e Tragediografo',
+    epochId: 'contemporanea',
+    subfolderId: 'avanguardie-crisi-io-ermetismo',
+    yearBadge: '1867 AD – 1936 AD',
+    lifeSpan: 'Agrigento, 1867 AD – Roma, 1936 AD',
+    sortYear: 1904,
+    historicalEventWiki: 'Il_fu_Mattia_Pascal',
+    historicalEventLabel: 'Il fu Mattia Pascal (1904 AD), L’Umorismo (1908 AD) e la frantumazione dell’Io',
+    satiricalHook:
+      'Quando nel 1903 una frana allagò la miniera di zolfo del padre mandando in fumo la dote della moglie, che impazzì di gelosia paranoica, Pirandello invece di crollare trasformò il manicomio familiare nella più lucida filosofia del teatro moderno: non siamo "uno", siamo "nessuno e centomila".',
+    simonNote:
+      'Simon dice: Per Pirandello la Vita è un flusso continuo che la società imprigiona in "Forme" (maschere) rigide, portando alla frantumazione dell’Io e al relativismo conoscitivo. Nel saggio L’Umorismo (1908) distingue il "comico" (avvertimento del contrario) dall’"umorismo" (sentimento del contrario). Ne Il fu Mattia Pascal (1904, struttura circolare in 16 capitoli) Mattia scappa dalla trappola familiare di Miragno, vince al casinò, approfitta della falsa notizia della propria morte per diventare Adriano Meis tra Milano e Roma, ma scopre che senza un’identità civile si è solo un’ombra e torna a portare i fiori sulla propria tomba.',
+    connectionNote:
+      'Supera il Verismo siciliano di Verga per aprire il teatro e il romanzo della crisi delle certezze del Novecento, accanto a Svevo e Freud.',
+    connectedAuthorIds: ['svevo', 'verga', 'freud'],
+  },
+  {
+    id: 'ungaretti',
+    name: 'Giuseppe Ungaretti',
+    wikiTitle: 'Giuseppe_Ungaretti',
+    wikiquoteTitle: 'Giuseppe_Ungaretti',
+    nationality: 'Italiana',
+    profession: 'Scrittore e Poeta',
+    epochId: 'contemporanea',
+    subfolderId: 'avanguardie-crisi-io-ermetismo',
+    yearBadge: '1888 AD – 1970 AD',
+    lifeSpan: 'Alessandria d’Egitto, 1888 AD – Milano, 1970 AD',
+    sortYear: 1916,
+    historicalEventWiki: 'L%27allegria',
+    historicalEventLabel: 'Il Porto Sepolto (1916 AD), L’Allegria, Mattina e Soldati nelle trincee del Carso',
+    satiricalHook:
+      'In mezzo ai bombardamenti sul Carso, mentre la tradizione letteraria italiana scriveva ancora poemi chilometrici, lui prese dei mozziconi di matita sulle cartoline militari e scrisse la poesia più luminosa della lingua italiana usando in tutto due parole: «M’illumino / d’immenso».',
+    simonNote:
+      'Simon dice: Nato ad Alessandria d’Egitto e formatosi a Parigi tra Mallarmé e il Futurismo, Ungaretti vede il poeta come un "palombaro" che si immerge ne Il Porto Sepolto (1916) per riportare a galla la parola pura. Da Allegria di naufragi (1919) all’edizione definitiva de L’Allegria (1942, divisa in Ultime, Il Porto Sepolto, Naufragi, Girovago, Prime), unisce il dolore della guerra a un indomabile "slancio vitale". Celebri Mattina (Carso, 1917) e Soldati (Francia, 1918: «Si sta come / d’autunno / sugli alberi / le foglie»), che rinnova con il "si sta" impersonale la similitudine di Omero, Virgilio e Dante (Inferno III).',
+    connectionNote:
+      'Raccoglie la lezione simbolista di Baudelaire e la sintesi futurista di Marinetti, ricollegandosi ai classici come Dante e Virgilio.',
+    connectedAuthorIds: ['dante-alighieri', 'baudelaire', 'marinetti'],
+  },
   {
     id: 'gramsci',
     name: 'Antonio Gramsci',
@@ -1017,6 +1316,8 @@ export const AUTHOR_SEEDS: AuthorSeed[] = [
     historicalEventLabel: 'La testimonianza di Auschwitz, Se questo è un uomo e Il sistema periodico',
     satiricalHook:
       'Chimico torinese dal linguaggio limpido come una formula di laboratorio, si salvò negli ultimi giorni di Auschwitz proprio perché ai tedeschi serviva un chimico per la fabbrica di gomma sintetica, e nel lager tenne viva l’umanità cercando di ricordare a memoria i versi del canto di Ulisse di Dante.',
+    simonNote:
+      'Simon dice: Nato a Torino nel 1919 in una famiglia ebraica, Primo Levi si iscrive a Chimica e riesce a laurearsi nel 1941 nonostante le Leggi Razziali del 1938. Entrato nei partigiani, viene catturato dai fascisti a 24 anni: dichiaratosi ebreo, passa dal campo di Fossoli alla deportazione ad Auschwitz, da cui tornerà per raccontare la Shoah con la lucidità di uno scienziato in Se questo è un uomo.',
     connectionNote:
       'Si lega direttamente a Dante Alighieri (il canto di Ulisse ad Auschwitz) e all’analisi di Hannah Arendt.',
     connectedAuthorIds: ['dante-alighieri', 'arendt', 'simone-weil'],

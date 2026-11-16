@@ -34,8 +34,8 @@ export function getDayIndex(dateStr: string): number {
 }
 
 /**
- * Seleziona in modo deterministico i semi del giorno (1 Autore Storico/Letterario + 1 Passo Biblico/Coranico)
- * e l'indice della citazione da estrarre via API.
+ * Seleziona in modo deterministico i semi del giorno:
+ * 1 Autore Storico/Letterario + 1 Passo della Bibbia + 1 Versetto del Corano.
  */
 export function pickDailySeeds(
   authorSeeds: AuthorSeed[],
@@ -45,21 +45,36 @@ export function pickDailySeeds(
   dayNumber: number;
   authorSeed: AuthorSeed;
   quoteIndex: number;
+  bibleSeed: SacredSeed;
+  quranSeed: SacredSeed;
   sacredSeed: SacredSeed;
 } {
   const dayNumber = getDayIndex(dateStr);
   const hashH = hashDateString(`hist:${dateStr}`);
-  const hashB = hashDateString(`sacr:${dateStr}`);
+  const hashB = hashDateString(`bibl:${dateStr}`);
+  const hashQ = hashDateString(`qur:${dateStr}`);
+
+  const biblePool = sacredSeeds.filter((s) => s.tradition === 'Bibbia');
+  const quranPool = sacredSeeds.filter((s) => s.tradition === 'Corano');
 
   const authorSeed = authorSeeds[(dayNumber + hashH) % authorSeeds.length];
-  const sacredSeed = sacredSeeds[(dayNumber + hashB) % sacredSeeds.length];
+  const bibleSeed =
+    biblePool.length > 0
+      ? biblePool[(dayNumber + hashB) % biblePool.length]
+      : sacredSeeds[0];
+  const quranSeed =
+    quranPool.length > 0
+      ? quranPool[(dayNumber + hashQ) % quranPool.length]
+      : sacredSeeds[sacredSeeds.length - 1];
   const quoteIndex = (dayNumber + (hashH % 7)) % 10;
 
   return {
     dayNumber,
     authorSeed,
     quoteIndex,
-    sacredSeed,
+    bibleSeed,
+    quranSeed,
+    sacredSeed: bibleSeed,
   };
 }
 

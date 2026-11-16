@@ -14,7 +14,7 @@ import {
   StudyChapter,
 } from '../core/types';
 
-const API_CACHE_PREFIX = 'mq_api_cache_v5_';
+const API_CACHE_PREFIX = 'mq_api_cache_v6_';
 
 function getCache<T>(key: string): T | null {
   try {
@@ -691,6 +691,7 @@ export async function fetchAuthorFullDossier(
     portraitUrl: summary.thumbnailUrl,
     portraitCaption: `Ritratto storico (${seed.name})`,
     satiricalHook: seed.satiricalHook,
+    simonNote: seed.simonNote,
     connectionNote: seed.connectionNote,
     connectedAuthorIds: seed.connectedAuthorIds,
     periodDefinition: conciseParagraph(

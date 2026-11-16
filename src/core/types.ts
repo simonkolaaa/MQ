@@ -138,6 +138,7 @@ export interface AuthorProfile {
   portraitUrl: string;
   portraitCaption: string;
   satiricalHook: string;
+  simonNote?: string;
   connectionNote: string;
   connectedAuthorIds: string[];
   periodDefinition: string;

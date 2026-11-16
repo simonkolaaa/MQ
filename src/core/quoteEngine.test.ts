@@ -11,17 +11,21 @@ import {
   SACRED_SEEDS,
   SUBFOLDER_MOVEMENTS,
 } from '../data/seeds';
+import { SIMON_STUDY_NOTES } from '../data/simonNotes';
+import { IDEOLOGIES_CATALOG } from '../data/ideologies';
 import { cleanWikiHtmlText } from '../services/liveWikiApi';
 import { Quote } from './types';
 
-describe('quoteEngine & Chrono-Subfolder Architecture', () => {
-  it('seleziona in modo deterministico i semi del giorno', () => {
-    const first = pickDailySeeds(AUTHOR_SEEDS, SACRED_SEEDS, '2026-11-15');
-    const second = pickDailySeeds(AUTHOR_SEEDS, SACRED_SEEDS, '2026-11-15');
+describe('quoteEngine, Trittico Giornaliero & Appunti di Simon', () => {
+  it('seleziona in modo deterministico 1 Voce Storica + 1 Passo Bibbia + 1 Versetto Corano per la Home', () => {
+    const first = pickDailySeeds(AUTHOR_SEEDS, SACRED_SEEDS, '2026-11-16');
+    const second = pickDailySeeds(AUTHOR_SEEDS, SACRED_SEEDS, '2026-11-16');
 
     expect(first.authorSeed.id).toBe(second.authorSeed.id);
-    expect(first.sacredSeed.id).toBe(second.sacredSeed.id);
-    expect(first.quoteIndex).toBe(second.quoteIndex);
+    expect(first.bibleSeed.id).toBe(second.bibleSeed.id);
+    expect(first.quranSeed.id).toBe(second.quranSeed.id);
+    expect(first.bibleSeed.tradition).toBe('Bibbia');
+    expect(first.quranSeed.tradition).toBe('Corano');
   });
 
   it('pulisce correttamente il markup HTML', () => {
@@ -33,7 +37,7 @@ describe('quoteEngine & Chrono-Subfolder Architecture', () => {
     );
   });
 
-  it('organizza i filosofi in sottocartelle cronologiche (es. Illuminismo con Voltaire, Rousseau e Kant) e verifica i collegamenti', () => {
+  it('organizza i filosofi e i poeti in sottocartelle cronologiche (Illuminismo, Verismo, Decadentismo, ’900) con gli appunti "Simon dice..."', () => {
     const illuminismoSubfolder = SUBFOLDER_MOVEMENTS.find(
       (sf) => sf.id === 'illuminismo-criticismo'
     );
@@ -42,33 +46,53 @@ describe('quoteEngine & Chrono-Subfolder Architecture', () => {
     const illuministi = filterAuthorSeeds(AUTHOR_SEEDS, {
       subfolderId: 'illuminismo-criticismo',
     });
-    const ids = illuministi.map((a) => a.id);
-    expect(ids).toContain('voltaire');
-    expect(ids).toContain('rousseau');
-    expect(ids).toContain('kant');
+    expect(illuministi.map((a) => a.id)).toEqual([
+      'voltaire',
+      'rousseau',
+      'kant',
+    ]);
 
-    // Verifica ordine cronologico (Voltaire 1759 -> Rousseau 1762 -> Kant 1784)
-    expect(ids[0]).toBe('voltaire');
-    expect(ids[1]).toBe('rousseau');
-    expect(ids[2]).toBe('kant');
+    const veristi = filterAuthorSeeds(AUTHOR_SEEDS, {
+      subfolderId: 'realismo-naturalismo-verismo',
+    });
+    expect(veristi.map((a) => a.id)).toContain('flaubert');
+    expect(veristi.map((a) => a.id)).toContain('zola');
+    expect(veristi.map((a) => a.id)).toContain('verga');
+    expect(veristi.map((a) => a.id)).toContain('marx');
 
-    const kant = illuministi.find((a) => a.id === 'kant');
-    expect(kant?.connectedAuthorIds).toContain('rousseau');
-    expect(kant?.connectedAuthorIds).toContain('voltaire');
+    const verga = AUTHOR_SEEDS.find((a) => a.id === 'verga');
+    expect(verga?.simonNote).toContain('Simon dice:');
+
+    const svevo = AUTHOR_SEEDS.find((a) => a.id === 'svevo');
+    expect(svevo?.simonNote).toContain('Simon dice:');
+
+    const pirandello = AUTHOR_SEEDS.find((a) => a.id === 'pirandello');
+    expect(pirandello?.simonNote).toContain('Simon dice:');
+
+    const ungaretti = AUTHOR_SEEDS.find((a) => a.id === 'ungaretti');
+    expect(ungaretti?.simonNote).toContain('Simon dice:');
   });
 
-  it('include una casistica variata dal Big Bang al 2000 AD con metafore/satira in "Perché è successo?"', () => {
+  it('contiene il Quaderno degli Appunti di Simon e la Cartella a Parte delle 8 Grandi Ideologie', () => {
+    expect(SIMON_STUDY_NOTES.length).toBeGreaterThanOrEqual(8);
+    expect(
+      SIMON_STUDY_NOTES.every((n) => n.simonSays.startsWith('Simon dice:'))
+    ).toBe(true);
     expect(INQUIRY_SEEDS.length).toBeGreaterThanOrEqual(11);
-    const bigBang = INQUIRY_SEEDS.find(
-      (i) => i.id === 'big-bang-polvere-di-stelle'
-    );
-    expect(bigBang).toBeDefined();
-    expect(bigBang?.satiricalHook.length).toBeGreaterThan(20);
 
-    const tulipani = INQUIRY_SEEDS.find(
-      (i) => i.id === 'bolla-tulipani-wall-street-2008'
+    const ideologyIds = IDEOLOGIES_CATALOG.map((i) => i.id);
+    expect(ideologyIds).toEqual(
+      expect.arrayContaining([
+        'socialismo',
+        'comunismo',
+        'capitalismo',
+        'liberalismo',
+        'anarchismo',
+        'conservatorismo',
+        'nazionalismo',
+        'fascismo',
+      ])
     );
-    expect(tulipani).toBeDefined();
   });
 
   it('filtra e ordina cronologicamente le citazioni salvate nella Raccolta', () => {

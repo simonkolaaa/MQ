@@ -75,7 +75,8 @@ body {
 }
 
 .bento-card {
-  background-color: var(--bg-surface);
+  background-color: color-mix(in srgb, var(--bg-surface) 92%, transparent);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
   border-radius: 1.25rem;
@@ -110,4 +111,72 @@ body {
   background-color: var(--accent-gold-soft);
   color: var(--accent-gold);
   border: 1px solid color-mix(in srgb, var(--accent-gold) 30%, transparent);
+}
+
+@keyframes floatPlanetSlow {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes orbitRingSpin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes warpBeamZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+  45% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+@keyframes warpBeamZoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+  45% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+.planet-float-1 {
+  animation: floatPlanetSlow 5.2s ease-in-out infinite;
+}
+.planet-float-2 {
+  animation: floatPlanetSlow 6.4s ease-in-out 0.8s infinite;
+}
+.planet-float-3 {
+  animation: floatPlanetSlow 5.8s ease-in-out 1.6s infinite;
+}
+
+.orbit-ring-spin {
+  animation: orbitRingSpin 90s linear infinite;
+}
+
+.warp-tunnel-in {
+  animation: warpBeamZoomIn 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.warp-tunnel-out {
+  animation: warpBeamZoomOut 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
