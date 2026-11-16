@@ -2,7 +2,7 @@
 
 Applicazione web storico-filosofica, letteraria, politica e biblico-coranica firmata **by Simon Kola**: presenta ogni giorno un **Trittico** (1 voce storica/letteraria, 1 passo della **Bibbia** e 1 versetto del **Corano**) sincronizzato con l'orologio e la data reale, un **albero cronologico dal Big Bang al 2000 AD** diviso per sottocartelle, la sezione **Perché è successo?** e il **Quaderno degli Appunti Scolastici di Simon («Simon dice...»)**.
 
-Sito / Demo: **[https://simonkolaaa.github.io/MQ](https://simonkolaaa.github.io/Memorable-Quotes)** · GitHub: **[simonkolaaa](https://github.com/simonkolaaa)** · Progettazione visuale: **[docs/progettazione-uml-er.md](docs/progettazione-uml-er.md)** · Licenza: [MIT](LICENSE)
+Sito / Demo: **[https://simonkolaaa.github.io/MQ](https://simonkolaaa.github.io/MQ)** · GitHub: **[simonkolaaa](https://github.com/simonkolaaa)** · Progettazione visuale: **[docs/progettazione-uml-er.md](docs/progettazione-uml-er.md)** · Licenza: [MIT](LICENSE)
 
 ## Com'è fatto
 
