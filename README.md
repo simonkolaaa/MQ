@@ -8,9 +8,9 @@ Sito / Demo: **[https://simonkolaaa.github.io/MQ](https://simonkolaaa.github.io/
 
 ```mermaid
 flowchart LR
-    UI[" Memorable Quotes · by Simon Kola"] -->|"Oggi (Data & Ora Reale)"| TRIO[" 1 Voce Storica + 1 Bibbia + 1 Corano\n(Blocco sulle date future)"]
-    UI -->|"Big Bang → 2000 AD"| TREE[" Ere (a.C. / AD) e Sottocartelle\n(Illuminismo, Verismo, Decadentismo, ’900)"]
-    UI -->|"Rubrica «Simon dice...»"| NOTES[" Il Quaderno degli Appunti di Simon\n(Letteratura ’800/’900 & Storia)"]
+    UI[" Memorable Quotes · Progetto"] -->|"Oggi (Data & Ora)"| TRIO[" 1 Voce Storica + 1 Bibbia + 1 Corano\n(Blocco sulle date future)"]
+    UI -->|"Big Bang → 2000 AD"| TREE[" Ere (a.C. / AD) e Sottocartelle"]
+    UI -->|"Rubrica «Simon dice...»"| NOTES[" Il Quaderno degli Appunti di Simon"]
     UI -->|"Perché è successo?"| INQ[" Paradossi, Congiure e Svolte"]
 ```
 
